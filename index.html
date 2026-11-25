@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Engineering Intelligence — AI Prompt Architect</title>
+<meta name="description" content="Transforma um pedido simples num prompt técnico completo: especialidades, normas, segurança, testes e critérios de aceitação.">
+<meta name="theme-color" content="#060b16">
+<link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap row">
+    <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="24" height="24"><span>Engineering Intelligence</span></a>
+    <nav class="nav"><a href="#como">Como funciona</a><a class="btn ghost sm" href="https://github.com/ticarollamas-arch/engineering-intelligence" target="_blank" rel="noopener">Código ↗</a></nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <p class="eyebrow">AI PROMPT ARCHITECT</p>
+    <h1>Descreva o que quer construir.<br><span class="grad">Receba o plano técnico.</span></h1>
+    <p class="lead">O motor identifica o tipo de projeto, ativa as especialidades certas, seleciona normas como OWASP, NIST e LGPD só quando se aplicam, e monta um prompt em 19 seções pronto para uma IA de desenvolvimento.</p>
+  </section>
+
+  <section class="card input" aria-labelledby="lbl">
+    <label id="lbl" for="pedido">O que você quer criar, corrigir, pesquisar ou implantar?</label>
+    <textarea id="pedido" rows="4" maxlength="2000" placeholder="Ex.: quero desenvolver uma loja virtual com pagamento por Pix"></textarea>
+    <div class="examples" id="examples" aria-label="Exemplos"></div>
+    <div class="actions">
+      <label class="toggle" id="aiToggle" title="Disponível quando a IA estiver configurada no servidor">
+        <input type="checkbox" id="useAI" disabled><span class="track"></span><span id="aiLabel">Refinar com IA (indisponível)</span>
+      </label>
+      <span class="count" id="count">0/2000</span>
+      <button class="btn pri" id="go" type="button">Gerar prompt</button>
+    </div>
+    <p class="err" id="err" role="alert" hidden></p>
+  </section>
+
+  <section id="result" class="result" hidden aria-live="polite">
+    <div class="summary">
+      <div class="card"><h2>Objetivo identificado</h2><p id="rObj"></p><p class="mode"><span class="dot"></span><span id="rMode"></span> · <span id="rSrc"></span></p></div>
+      <div class="card"><h2>Especialidades ativadas</h2><div class="chips" id="rSpec"></div></div>
+    </div>
+    <div class="card"><h2>Normas e referenciais aplicáveis</h2><ul class="refs" id="rRefs"></ul></div>
+    <div class="card prompt">
+      <div class="phead">
+        <h2>Prompt final</h2>
+        <div class="tabs" id="tabs" hidden><button class="tab on" data-t="local" type="button">Motor local</button><button class="tab" data-t="ia" type="button">Refinado por IA</button></div>
+        <div class="pacts"><button class="btn ghost sm" id="copy" type="button">Copiar</button><button class="btn ghost sm" id="dl" type="button">Baixar .md</button></div>
+      </div>
+      <p class="note" id="aiNote" hidden></p>
+      <pre id="rPrompt" tabindex="0"></pre>
+    </div>
+    <div class="summary">
+      <div class="card"><h2>Entregáveis esperados</h2><ul id="rDel"></ul></div>
+      <div class="card"><h2>Critérios de validação</h2><ul id="rVal"></ul></div>
+    </div>
+  </section>
+
+  <section id="como" class="how">
+    <h2>Como funciona</h2>
+    <ol class="steps">
+      <li><b>Interpretação</b><span>lê o pedido e detecta sinais: web, API, mobile, dados, IA, pagamentos, dados pessoais, infraestrutura.</span></li>
+      <li><b>Modo</b><span>escolhe entre desenvolvimento, pesquisa de vulnerabilidades, melhoria, infraestrutura ou IA.</span></li>
+      <li><b>Mapeamento</b><span>ativa só as especialidades e normas pertinentes e explica o porquê de cada uma.</span></li>
+      <li><b>Prompt</b><span>gera 19 seções, de requisitos a evidências de funcionamento, sem prometer o que não foi verificado.</span></li>
+    </ol>
+    <p class="small">O motor local roda no seu navegador, sem enviar nada. O refinamento por IA, quando ativado pela dona do servidor, tem limite de uso por visitante.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap row">
+    <span>Engineering Intelligence · por <a href="https://cyberhuntlab.com.br">Ana Caroline Lamas</a></span>
+    <span class="small">v<span id="ver">1.0.0</span> · MIT</span>
+  </div>
+</footer>
+<script type="module" src="app.js"></script>
+</body>
+</html>
